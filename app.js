@@ -1,10 +1,12 @@
 const express= require('express');
 const morgan = require('morgan');
 const userModel=require('./model/user')
-const dbConnect=require('./config/db')
+const connectdb =require('./config/db')
+const dotenv=require('dotenv')
+dotenv.config()
 const app=express();
 
-// dbConnect();
+connectdb();
 
 app.use(morgan('dev'))
 app.use(express.json())

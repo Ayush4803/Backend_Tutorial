@@ -1,6 +1,8 @@
 const mongoose=require('mongoose')
 
-const db=mongoose.connect('mongodb://0.0.0.0/AK').then(()=>{
-    console.log("DB CONNECTED SUCCESSFULLY !!")
-})
-module.exports= db
+function connectdb(){
+    mongoose.connect(process.env.MONGO_URI).then(()=>{
+        console.log("DB IS SUCCESFULLY CONNECTED")
+    })
+}
+module.exports=connectdb
